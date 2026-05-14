@@ -1,0 +1,88 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const url = (p: string) => `${base}${p}`;
+
+const values = [
+  { title: "Connection + Growth", body: "We facilitate authentic relationships that spark opportunity — not just business cards, but real collaboration." },
+  { title: "Inclusive Leadership", body: "Everyone is welcome here — diverse voices, different backgrounds, no gatekeeping. Our community thrives when every voice has a place." },
+  { title: "Purpose-Driven", body: "Community impact matters. Membership isn't just access; it's responsibility. We believe in giving back, and in doing work that moves our region forward." },
+  { title: "Elevated Experiences", body: "From rooftop mixers to curated dinners to executive-level events, every touchpoint is elegant, elevated, and distinctively above the skyline." },
+];
+---
+
+<Layout title="About | Scott's Social Club">
+  <section class="bg-teal-deep pt-32 pb-12 sm:pb-16">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8 text-center">
+      <p class="text-gold-light uppercase tracking-[0.3em] text-xs mb-4">About</p>
+      <h1 class="font-display text-4xl sm:text-6xl text-cream mb-5 leading-tight">
+        Built for people who<br/>
+        <span class="italic text-gold-light">lead, build, and connect.</span>
+      </h1>
+    </div>
+  </section>
+
+  <section class="bg-cream-soft py-20 sm:py-28">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8 space-y-8 text-ink/85 leading-relaxed text-lg">
+      <p class="font-display text-2xl text-ink leading-snug italic">
+        Welcome to Scott's Social Club — a membership community in Downtown San José built for people who lead, build, and connect with intention.
+      </p>
+
+      <h2 class="font-display text-3xl text-ink mt-12 mb-2">Founding</h2>
+      <p>
+        Scott's Social Club was created to fill the void left in Silicon Valley's
+        social landscape — a modern, inclusive, and forward-thinking community
+        built around connection, collaboration, and purpose.
+      </p>
+      <p>
+        We're not a traditional networking club — we're a relationship-driven
+        ecosystem. Scott's Social Club brings together founders, professionals,
+        creatives, nonprofit leaders, and civic voices to create the kind of
+        community Silicon Valley has been missing: welcoming, elevated, and
+        built for real connection.
+      </p>
+      <p>
+        When you join, you're not just gaining access — you're joining a club
+        that's redefining what it means to network, dine, and grow in the heart
+        of Silicon Valley.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-paper py-20 sm:py-28 border-y border-line">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8">
+      <div class="text-center mb-12">
+        <p class="text-teal uppercase tracking-[0.3em] text-xs mb-4">Our Values</p>
+        <h2 class="font-display text-3xl sm:text-5xl text-ink leading-tight">What we stand for.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-8">
+        {values.map((v, i) => (
+          <div class="bg-cream-soft p-8 border-t-2 border-gold">
+            <p class="text-gold-deep uppercase tracking-widest text-xs mb-3">0{i + 1}</p>
+            <h3 class="font-display text-2xl text-ink mb-3">{v.title}</h3>
+            <p class="text-ink/70 leading-relaxed">{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-teal-deep py-20 sm:py-28 text-cream">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8 text-center">
+      <p class="text-gold-light uppercase tracking-[0.3em] text-xs mb-4">Why It Matters</p>
+      <h2 class="font-display text-3xl sm:text-5xl mb-8 leading-tight">
+        Reconnect in person.
+      </h2>
+      <p class="text-cream/85 leading-relaxed text-lg max-w-2xl mx-auto">
+        In a region built on speed and screens, Scott's Social Club is a place
+        to reconnect in person. We create room for the conversations that don't
+        happen in a Zoom meeting — relationships built over dining, shared
+        experiences, and community energy in the heart of Downtown San José.
+      </p>
+      <a href={url("/membership")} class="inline-block mt-10 bg-gold text-teal-deep text-sm font-semibold uppercase tracking-widest px-10 py-4 hover:bg-cream transition">
+        Become a Member →
+      </a>
+    </div>
+  </section>
+</Layout>

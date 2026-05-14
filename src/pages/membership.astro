@@ -1,0 +1,217 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const url = (p: string) => `${base}${p}`;
+
+const benefits = [
+  "Two+ monthly mixers and/or educational programs with Silicon Valley's most influential leaders",
+  "Parking included for Scott's Social Club events",
+  "Working site access at Scott's Seafood — private and breakout rooms, Mon–Fri 11 AM–5 PM",
+  "Opportunity to join specialized councils — EmpowerHer and Thrive Network",
+  "Spotlight features across newsletters, social channels, and member events",
+  "Invitations to signature experiences: Sip & Shuck Oyster Nights, The Art of Tuna, Wine & Paint, Seafood Boils (additional fees apply)",
+];
+
+const partners = [
+  "20% member discount at Scott's Seafood San Jose*",
+  "15% discount at partner businesses (DJ Cisco, Studio Petall, Signia by Hilton, more)",
+  "25% off CityLights Theater Company productions in 2026",
+  "FORMA Gym partnership (waived initiation fees, 1:1 training session, more)",
+];
+
+const tiers = [
+  {
+    id: "executive",
+    title: "Executive",
+    fee: "$150 Initiation",
+    monthly: "$150/month",
+    annual: "$1,500 (2 months free)",
+    description: "For senior leaders, founders, and executives.",
+    benefits: [
+      "All standard benefits",
+      "$100 dining certificate to Scott's Seafood (one-time)",
+      "Preferred rates for private gatherings at Scott's Ballroom & Scott's Seafood",
+      "Complimentary guest to monthly mixers (experiences not included)",
+    ],
+    featured: true,
+  },
+  {
+    id: "young-professional",
+    title: "Young Professional",
+    fee: "$100 Initiation",
+    monthly: "$100/month",
+    annual: "",
+    description: "For members 40 and under.",
+    benefits: [
+      "All standard benefits",
+      "Bottle of wine OR two non-alcoholic cocktails at quarterly Young Pro mixers",
+      "Mentorship program access",
+    ],
+    featured: false,
+  },
+  {
+    id: "corporate",
+    title: "Corporate",
+    fee: "$1,250 Initiation",
+    monthly: "$125/month per member",
+    annual: "",
+    description: "For corporations bringing 10+ members.",
+    benefits: [
+      "All standard benefits for every enrolled member",
+      "Visibility & branding at high-profile member events",
+      "Sponsorship opportunities for councils and programs",
+      "Quarterly executive engagement",
+    ],
+    featured: false,
+  },
+  {
+    id: "non-profit",
+    title: "Non-Profit",
+    fee: "$1,000 Initiation",
+    monthly: "$50/month per member",
+    annual: "",
+    description: "For registered 501(c)(3) or 501(c)(6) organizations.",
+    benefits: [
+      "All standard benefits",
+      "Opportunities to showcase your mission at mixers",
+      "Direct access to Silicon Valley's business and civic leaders",
+    ],
+    featured: false,
+  },
+];
+---
+
+<Layout title="Membership | Scott's Social Club">
+  <section class="bg-teal-deep pt-32 pb-12 sm:pb-16">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8 text-center">
+      <p class="text-gold-light uppercase tracking-[0.3em] text-xs mb-4">Membership</p>
+      <h1 class="font-display text-4xl sm:text-6xl text-cream mb-5 leading-tight">
+        Where you connect <em class="text-gold-light">matters.</em>
+      </h1>
+      <p class="text-cream/80 max-w-2xl mx-auto leading-relaxed">
+        Scott's Social Club is where connection meets purpose. More than networking —
+        a curated community built on shared values, real relationships, and the
+        belief that together, we rise.
+      </p>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section id="benefits" class="bg-cream-soft py-20 sm:py-28">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8">
+      <div class="text-center mb-14">
+        <p class="text-teal uppercase tracking-[0.3em] text-xs mb-4">Benefits</p>
+        <h2 class="font-display text-3xl sm:text-5xl text-ink leading-tight">What every member gets.</h2>
+      </div>
+
+      <div class="bg-paper p-8 sm:p-12 border-t-4 border-gold shadow-lg mb-12">
+        <p class="text-gold-deep uppercase tracking-widest text-xs mb-6 font-semibold">Standard Membership Benefits</p>
+        <ul class="space-y-4">
+          {benefits.map((b) => (
+            <li class="flex gap-4 items-start text-ink/85 leading-relaxed">
+              <span class="text-gold-deep font-bold text-xl leading-none">·</span>
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="bg-paper p-8 sm:p-12 border-t-4 border-gold shadow-lg">
+        <p class="text-gold-deep uppercase tracking-widest text-xs mb-6 font-semibold">External Partner Discounts</p>
+        <ul class="space-y-4">
+          {partners.map((p) => (
+            <li class="flex gap-4 items-start text-ink/85 leading-relaxed">
+              <span class="text-gold-deep font-bold text-xl leading-none">·</span>
+              <span>{p}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="text-ink/50 text-xs italic mt-6">*Does not include private dining or venue buy-outs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIERS -->
+  <section id="join" class="bg-teal-deep py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="text-center mb-14 text-cream">
+        <p class="text-gold-light uppercase tracking-[0.3em] text-xs mb-4">Choose Your Tier</p>
+        <h2 class="font-display text-3xl sm:text-5xl leading-tight">Four ways to join.</h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {tiers.map((t) => (
+          <div class:list={["p-8 flex flex-col", t.featured ? "bg-gold text-teal-deep shadow-2xl scale-105" : "bg-ink-soft text-cream"]}>
+            <div class="flex-1">
+              {t.featured && (
+                <p class="text-teal-deep uppercase tracking-widest text-xs mb-2 font-bold">Most Popular</p>
+              )}
+              <h3 class:list={["font-display text-2xl mb-2", t.featured ? "text-teal-deep" : "text-cream"]}>{t.title}</h3>
+              <p class:list={["text-sm mb-6", t.featured ? "text-teal-deep/80" : "text-cream/70"]}>{t.description}</p>
+              <div class="mb-6">
+                <p class="font-display text-3xl">{t.monthly}</p>
+                <p class:list={["text-xs uppercase tracking-widest", t.featured ? "text-teal-deep/70" : "text-cream/60"]}>
+                  {t.fee}
+                  {t.annual && (<> · {t.annual}</>)}
+                </p>
+              </div>
+              <ul class="space-y-2 text-sm mb-8">
+                {t.benefits.map((b) => (
+                  <li class:list={["flex gap-2 items-start leading-relaxed", t.featured ? "text-teal-deep/85" : "text-cream/80"]}>
+                    <span class="font-bold">·</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <a href={url("/contact")} class:list={["block text-center text-xs font-semibold uppercase tracking-widest px-6 py-3 transition", t.featured ? "bg-teal-deep text-gold hover:bg-ink" : "bg-gold text-teal-deep hover:bg-cream"]}>
+              Apply for {t.title} →
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TERMS -->
+  <section class="bg-cream-soft py-20 sm:py-24">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8">
+      <div class="text-center mb-10">
+        <p class="text-teal uppercase tracking-[0.3em] text-xs mb-4">Membership Terms</p>
+        <h2 class="font-display text-3xl text-ink leading-tight">Before you join.</h2>
+      </div>
+      <div class="bg-paper p-8 border border-line space-y-5 text-ink/80 leading-relaxed">
+        <p>
+          When you join Scott's Social Club, you're joining a dedicated group
+          of professionals. To maintain the stability of our organization,
+          we operate on a one-year membership cycle.
+        </p>
+        <div>
+          <p class="font-display text-lg text-ink mb-1">Dues & Refunds</p>
+          <p>All membership dues are final. We do not offer refunds or pro-rated credits.</p>
+        </div>
+        <div>
+          <p class="font-display text-lg text-ink mb-1">Annual Commitment</p>
+          <p>Membership is a 12-month agreement. If a member departs prior to the end of their term, the outstanding balance is due upon departure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="bg-ink py-20 sm:py-28 text-center text-cream">
+    <div class="max-w-2xl mx-auto px-5 sm:px-8">
+      <p class="text-gold-light uppercase tracking-[0.3em] text-xs mb-4">Questions?</p>
+      <h2 class="font-display text-3xl sm:text-5xl mb-6 leading-tight">
+        Talk to Robert.
+      </h2>
+      <p class="text-cream/80 leading-relaxed mb-10">
+        Reach out to Robert Robledo for details and membership support.
+      </p>
+      <div class="space-y-3">
+        <a href="tel:+14084646992" class="block font-display text-2xl text-gold-light hover:text-cream transition">(408) 464-6992</a>
+        <a href="mailto:robert.robledo@scottssocialclub.com" class="block text-cream/80 hover:text-gold-light transition">robert.robledo@scottssocialclub.com</a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,166 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const url = (p: string) => `${base}${p}`;
+
+const heroPoster = "https://static.wixstatic.com/media/56773e_e8eb6ec8755447599adca9d512c222c4~mv2.jpg/v1/fill/w_1920,h_1080/JK8A0325-1-6-scaled_edited.jpg";
+
+const pillars = [
+  {
+    title: "Networking & Connections",
+    body: "Curated mixers and educational programs where Silicon Valley's most influential leaders connect with intention.",
+  },
+  {
+    title: "Culinary & Experience",
+    body: "Signature dinners, Sip & Shuck Oyster Nights, wine tastings, and member-only experiences across the Scott's family.",
+  },
+  {
+    title: "Community & Enrichment",
+    body: "Specialized councils, partner discounts, and access to Silicon Valley's business and civic leadership.",
+  },
+];
+
+const upcomingEvents = [
+  { date: "May 13", type: "Mixer", title: "Pacific Horizons Mixer & AI 2.0 Workshop", body: "AAPI Heritage Month celebration with industry panel and curated networking." },
+  { date: "May 22", type: "Experience", title: "Sip & Shuck Oyster Night", body: "Wine pairing dinner at Scott's Seafood featuring six oyster varieties." },
+  { date: "Jun 4", type: "Educational", title: "Founder Roundtable: AI in Hospitality", body: "Off-the-record discussion with three Silicon Valley founders building AI products." },
+];
+
+const partners = [
+  "Scott's Seafood",
+  "Signia by Hilton",
+  "DJ Cisco Entertainment",
+  "Studio Petall",
+  "CityLights Theater",
+  "FORMA Gym",
+];
+---
+
+<Layout
+  title="Scott's Social Club | Above the Skyline in San José"
+  description="A private members' community for Silicon Valley professionals. Networking, dining, and curated experiences in Downtown San José."
+  transparentHeader={true}
+>
+  <!-- HERO -->
+  <section class="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
+    <img src={heroPoster} alt="Scott's Social Club" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-teal-deep/65"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-5 sm:px-8">
+      <p class="fade-up text-gold-light uppercase tracking-[0.3em] text-xs sm:text-sm mb-4 sm:mb-6">
+        Downtown San José · Members Only
+      </p>
+      <h1 class="fade-up-delay-1 text-cream font-display text-[1.75rem] leading-[1.15] sm:text-7xl sm:leading-[1.05] max-w-3xl tracking-tight">
+        Be seen. Be heard.<br/>
+        <span class="italic text-gold-light">Belong.</span>
+      </h1>
+      <p class="fade-up-delay-2 text-cream/85 mt-5 sm:mt-8 max-w-2xl text-sm sm:text-lg leading-relaxed px-2">
+        A private members' community where Silicon Valley professionals
+        connect with purpose — and leave with momentum.
+      </p>
+      <div class="fade-up-delay-2 mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+        <a href={url("/membership") + "#join"} class="bg-gold text-teal-deep text-sm font-semibold uppercase tracking-widest px-8 py-4 hover:bg-cream transition text-center">
+          Join Now
+        </a>
+        <a href={url("/events")} class="border border-cream/40 text-cream text-sm font-semibold uppercase tracking-widest px-8 py-4 hover:border-gold-light hover:text-gold-light transition text-center">
+          Upcoming Events
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="bg-cream-soft py-20 sm:py-28">
+    <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+      <p class="text-teal uppercase tracking-[0.3em] text-xs mb-6">Our Mission</p>
+      <h2 class="font-display text-3xl sm:text-5xl text-ink mb-8 leading-tight">
+        Connection meets <em class="text-gold-deep">purpose.</em>
+      </h2>
+      <p class="text-ink/75 leading-relaxed text-lg max-w-2xl mx-auto">
+        We bring together entrepreneurs, executives, creatives, nonprofit
+        champions, and civic leaders in a space designed for real conversation,
+        curated experiences, and high-trust introductions.
+      </p>
+      <p class="text-ink/75 leading-relaxed text-lg max-w-2xl mx-auto mt-6">
+        Through member gatherings, signature events, and partner perks, we
+        help people turn connections into collaboration — and collaboration
+        into lasting impact across San José and the greater Bay Area.
+      </p>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="bg-teal-deep py-20 sm:py-28 text-cream">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="text-center mb-14 sm:mb-20">
+        <p class="text-gold-light uppercase tracking-[0.3em] text-xs mb-4">What You Get</p>
+        <h2 class="font-display text-3xl sm:text-5xl">Three pillars of membership.</h2>
+      </div>
+      <div class="grid gap-8 md:grid-cols-3">
+        {pillars.map((p, i) => (
+          <div class="bg-ink-soft p-8 border-l-2 border-gold">
+            <p class="text-gold-light uppercase tracking-widest text-xs mb-3">0{i + 1}</p>
+            <h3 class="font-display text-2xl text-cream mb-4">{p.title}</h3>
+            <p class="text-cream/75 leading-relaxed">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS PREVIEW -->
+  <section class="bg-paper py-20 sm:py-28 border-y border-line">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8">
+      <div class="flex flex-wrap items-end justify-between mb-12 gap-4">
+        <div>
+          <p class="text-teal uppercase tracking-[0.3em] text-xs mb-4">Coming Up</p>
+          <h2 class="font-display text-3xl sm:text-5xl text-ink leading-tight">Upcoming events.</h2>
+        </div>
+        <a href={url("/events")} class="text-teal text-xs uppercase tracking-widest font-semibold border-b border-teal pb-1 hover:text-gold-deep hover:border-gold-deep">
+          See All Events →
+        </a>
+      </div>
+      <div class="space-y-6">
+        {upcomingEvents.map((e) => (
+          <div class="bg-cream-soft p-6 sm:p-8 border-l-4 border-gold grid sm:grid-cols-[120px_auto_1fr] gap-4 sm:gap-8 items-baseline">
+            <p class="font-display text-2xl text-ink">{e.date}</p>
+            <p class="text-gold-deep uppercase tracking-widest text-xs">{e.type}</p>
+            <div>
+              <h3 class="font-display text-xl text-ink mb-2">{e.title}</h3>
+              <p class="text-ink/70 leading-relaxed text-sm">{e.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="bg-cream-soft py-16">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 text-center">
+      <p class="text-teal uppercase tracking-[0.3em] text-xs mb-8">Partner Discounts</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 items-center">
+        {partners.map((p) => (
+          <div class="font-display text-lg text-ink/60 italic">{p}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN CTA -->
+  <section class="bg-ink py-20 sm:py-28 text-center text-cream">
+    <div class="max-w-2xl mx-auto px-5 sm:px-8">
+      <p class="text-gold-light uppercase tracking-[0.3em] text-xs mb-4">Your Skyline Awaits</p>
+      <h2 class="font-display text-3xl sm:text-5xl mb-6 leading-tight">
+        Join the conversation.
+      </h2>
+      <p class="text-cream/80 leading-relaxed mb-10">
+        Four membership tiers. One community. Start with Executive,
+        Young Professional, Corporate, or Non-Profit.
+      </p>
+      <a href={url("/membership")} class="inline-block bg-gold text-teal-deep text-sm font-semibold uppercase tracking-widest px-10 py-4 hover:bg-cream transition">
+        View Membership Options
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contact | Scott's Social Club">
+  <section class="bg-teal-deep pt-32 pb-12 sm:pb-16">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8 text-center">
+      <p class="text-gold-light uppercase tracking-[0.3em] text-xs mb-4">Get in Touch</p>
+      <h1 class="font-display text-4xl sm:text-6xl text-cream mb-5 leading-tight">
+        Your skyline awaits.
+      </h1>
+      <p class="text-cream/75 max-w-xl mx-auto leading-relaxed">
+        Apply for membership, ask a question, or RSVP for an event.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-cream-soft py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16">
+      <form class="bg-paper p-8 sm:p-10 border-t-4 border-gold space-y-5">
+        <h2 class="font-display text-2xl sm:text-3xl text-ink mb-6">Tell us about you.</h2>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="name" class="text-xs uppercase tracking-widest text-teal font-semibold mb-2 block">Name</label>
+            <input type="text" id="name" required class="w-full border border-line bg-cream-soft px-4 py-3 text-ink focus:outline-none focus:border-teal transition" />
+          </div>
+          <div>
+            <label for="company" class="text-xs uppercase tracking-widest text-teal font-semibold mb-2 block">Company / Title</label>
+            <input type="text" id="company" class="w-full border border-line bg-cream-soft px-4 py-3 text-ink focus:outline-none focus:border-teal transition" />
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="email" class="text-xs uppercase tracking-widest text-teal font-semibold mb-2 block">Email</label>
+            <input type="email" id="email" required class="w-full border border-line bg-cream-soft px-4 py-3 text-ink focus:outline-none focus:border-teal transition" />
+          </div>
+          <div>
+            <label for="phone" class="text-xs uppercase tracking-widest text-teal font-semibold mb-2 block">Phone</label>
+            <input type="tel" id="phone" class="w-full border border-line bg-cream-soft px-4 py-3 text-ink focus:outline-none focus:border-teal transition" />
+          </div>
+        </div>
+
+        <div>
+          <label for="purpose" class="text-xs uppercase tracking-widest text-teal font-semibold mb-2 block">I'm interested in...</label>
+          <select id="purpose" class="w-full border border-line bg-cream-soft px-4 py-3 text-ink focus:outline-none focus:border-teal transition">
+            <option>Executive Membership</option>
+            <option>Young Professional Membership</option>
+            <option>Corporate Membership (10+ employees)</option>
+            <option>Non-Profit Membership</option>
+            <option>Event RSVP</option>
+            <option>Partnership opportunities</option>
+            <option>General question</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message" class="text-xs uppercase tracking-widest text-teal font-semibold mb-2 block">Tell us more</label>
+          <textarea id="message" rows="5" class="w-full border border-line bg-cream-soft px-4 py-3 text-ink focus:outline-none focus:border-teal transition" placeholder="What brought you here? What are you hoping to find?"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-teal-deep text-cream text-sm font-semibold uppercase tracking-widest py-4 hover:bg-ink transition">
+          Send →
+        </button>
+        <p class="text-ink/50 text-xs text-center">Robert responds within one business day.</p>
+      </form>
+
+      <div class="space-y-10">
+        <div>
+          <h2 class="text-xs uppercase tracking-widest text-teal font-semibold mb-3">Membership Inquiries</h2>
+          <p class="font-display text-xl text-ink mb-2">Robert Robledo</p>
+          <div class="space-y-2">
+            <a href="tel:+14084646992" class="block font-display text-xl text-gold-deep hover:text-ink transition">(408) 464-6992</a>
+            <a href="mailto:robert.robledo@scottssocialclub.com" class="block text-ink/80 hover:text-gold-deep transition text-sm">robert.robledo@scottssocialclub.com</a>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-xs uppercase tracking-widest text-teal font-semibold mb-3">Find Us</h2>
+          <p class="font-display text-lg text-ink leading-snug">
+            88 S. 4th Street, 7th Floor<br/>
+            The Rotary Summit Center<br/>
+            San Jose, CA 95112
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xs uppercase tracking-widest text-teal font-semibold mb-3">Member Login</h2>
+          <p class="text-ink/70 leading-relaxed mb-4">
+            Existing members can sign in to view the member directory, RSVP for events, and access partner discounts.
+          </p>
+          <a href="#" class="inline-block border border-teal text-teal text-xs font-semibold uppercase tracking-widest px-6 py-3 hover:bg-teal hover:text-cream transition">
+            Member Login →
+          </a>
+        </div>
+
+        <div class="aspect-[5/4] bg-ink/10 shadow-xl">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.123!2d-121.8889!3d37.3349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcca5b3d4e4d5%3A0x0!2zODggUyBGb3VydGggU3QsIFNhbiBKb3NlLCBDQSA5NTExMg!5e0!3m2!1sen!2sus!4v1700000000000"
+            class="w-full h-full"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Scott's Social Club Map"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

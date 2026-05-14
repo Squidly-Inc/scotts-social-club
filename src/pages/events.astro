@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const url = (p: string) => `${base}${p}`;
+
+const events = [
+  { date: "May 13", type: "Mixer", title: "Pacific Horizons Mixer & AI 2.0 Workshop", body: "AAPI Heritage Month celebration with industry panel and curated networking.", price: "Included with membership · $45 non-members", food: "Heavy appetizers, one drink ticket" },
+  { date: "May 22", type: "Experience", title: "Sip & Shuck Oyster Night", body: "Wine pairing dinner at Scott's Seafood featuring six oyster varieties.", price: "$85 members · $110 non-members", food: "Full tasting menu" },
+  { date: "Jun 4", type: "Educational", title: "Founder Roundtable: AI in Hospitality", body: "Off-the-record discussion with three Silicon Valley founders.", price: "Included with membership · Members only", food: "Light appetizers, coffee service" },
+  { date: "Jun 18", type: "Experience", title: "The Art of Tuna", body: "Sushi chef tasting and break-down session at Scott's Seafood.", price: "$95 members · $125 non-members", food: "Full tasting menu" },
+  { date: "Jul 9", type: "Mixer", title: "Skyline Summer Rooftop Mixer", body: "Cocktail networking on the Bayview Terrace at sunset.", price: "Included with membership · $55 non-members", food: "Passed appetizers, one drink ticket" },
+  { date: "Jul 24", type: "Educational", title: "Civic Leadership Lunch", body: "Conversation with current and former San José civic leaders.", price: "Included with membership", food: "Plated lunch" },
+];
+
+const types = [
+  { label: "Mixer", color: "bg-teal text-cream" },
+  { label: "Experience", color: "bg-gold-deep text-cream" },
+  { label: "Educational", color: "bg-ink text-cream" },
+];
+---
+
+<Layout title="Upcoming Events | Scott's Social Club">
+  <section class="bg-teal-deep pt-32 pb-12 sm:pb-16">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8 text-center">
+      <p class="text-gold-light uppercase tracking-[0.3em] text-xs mb-4">Upcoming Events</p>
+      <h1 class="font-display text-4xl sm:text-6xl text-cream mb-5 leading-tight">
+        Ideas exchanged.<br/>
+        Partnerships formed.<br/>
+        <span class="italic text-gold-light">Friendships built.</span>
+      </h1>
+      <p class="text-cream/75 max-w-2xl mx-auto leading-relaxed">
+        From skyline mixers to curated wine dinners to executive roundtables —
+        every gathering is designed to connect you with Silicon Valley's most
+        engaging professionals.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-paper py-10 sm:py-12 border-y border-line">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8">
+      <p class="text-xs uppercase tracking-widest text-teal font-semibold mb-3">Event Types</p>
+      <div class="flex flex-wrap gap-3 text-xs">
+        {types.map((t) => (
+          <span class={`inline-block px-3 py-1.5 uppercase tracking-widest font-semibold ${t.color}`}>{t.label}</span>
+        ))}
+        <span class="text-ink/60 italic ml-2">Events open to members and non-members unless noted.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream-soft py-16 sm:py-24">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 space-y-6">
+      {events.map((e) => {
+        const type = types.find((t) => t.label === e.type);
+        return (
+          <article class="bg-paper p-6 sm:p-8 border-l-4 border-gold grid sm:grid-cols-[100px_1fr_auto] gap-6 items-start">
+            <div>
+              <p class="font-display text-3xl text-ink leading-none mb-1">{e.date}</p>
+              <p class="text-ink/50 text-xs uppercase tracking-widest">2026</p>
+            </div>
+            <div>
+              <span class={`inline-block px-2.5 py-1 uppercase tracking-widest font-semibold text-[10px] mb-3 ${type?.color}`}>{e.type}</span>
+              <h3 class="font-display text-2xl text-ink mb-2 leading-tight">{e.title}</h3>
+              <p class="text-ink/70 leading-relaxed mb-4 text-sm sm:text-base">{e.body}</p>
+              <div class="text-xs text-ink/60 space-y-1">
+                <p><strong class="text-ink/80">Food & drink:</strong> {e.food} · Parking not included</p>
+                <p><strong class="text-ink/80">Pricing:</strong> {e.price}</p>
+              </div>
+            </div>
+            <a href={url("/contact")} class="bg-teal-deep text-cream text-xs font-semibold uppercase tracking-widest px-5 py-3 hover:bg-ink transition whitespace-nowrap">
+              RSVP →
+            </a>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="bg-teal-deep py-20 sm:py-28 text-center text-cream">
+    <div class="max-w-2xl mx-auto px-5 sm:px-8">
+      <p class="text-gold-light uppercase tracking-[0.3em] text-xs mb-4">Want In?</p>
+      <h2 class="font-display text-3xl sm:text-5xl mb-6 leading-tight">
+        Mixers & educational events<br/>included with membership.
+      </h2>
+      <p class="text-cream/80 leading-relaxed mb-10">
+        Members attend a minimum of two monthly mixers or educational events
+        at no extra cost. Signature experiences carry additional fees.
+      </p>
+      <a href={url("/membership")} class="inline-block bg-gold text-teal-deep text-sm font-semibold uppercase tracking-widest px-10 py-4 hover:bg-cream transition">
+        See Membership Options
+      </a>
+    </div>
+  </section>
+</Layout>

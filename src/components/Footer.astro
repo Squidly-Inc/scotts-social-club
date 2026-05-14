@@ -1,0 +1,56 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const url = (p: string) => `${base}${p}`;
+---
+
+<footer class="bg-teal-deep text-cream/85">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 grid gap-12 md:grid-cols-4">
+    <div class="md:col-span-2">
+      <div class="font-display text-2xl text-cream mb-3">
+        Scott's <span class="italic text-gold-light">Social Club</span>
+      </div>
+      <p class="text-sm leading-relaxed text-cream/70 max-w-md">
+        An elevated community in the heart of Downtown San José.
+        Be seen. Be heard. Belong.
+      </p>
+      <div class="mt-6 text-sm">
+        <p class="text-gold uppercase tracking-widest text-xs mb-2">Part of the Scott's family</p>
+        <div class="flex flex-wrap gap-4 text-cream/70">
+          <a href="https://squidly-inc.github.io/scotts-hospitality/" class="hover:text-gold-light">Hospitality</a>
+          <a href="https://squidly-inc.github.io/scotts-mockup/" class="hover:text-gold-light">Restaurant</a>
+          <a href="https://squidly-inc.github.io/scotts-ballroom/" class="hover:text-gold-light">Ballroom</a>
+          <a href="https://squidly-inc.github.io/scotts-provisions/" class="hover:text-gold-light">Provisions</a>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-sm uppercase tracking-widest text-gold mb-4">Get in Touch</h4>
+      <p class="text-sm leading-relaxed text-cream/70">
+        88 S. 4th Street, 7th Floor<br/>
+        San Jose, CA 95112<br/><br/>
+        <a href="tel:+14084646992" class="hover:text-gold-light">(408) 464-6992</a><br/>
+        <a href="mailto:robert.robledo@scottssocialclub.com" class="hover:text-gold-light text-xs">robert.robledo@scottssocialclub.com</a>
+      </p>
+    </div>
+
+    <div>
+      <h4 class="text-sm uppercase tracking-widest text-gold mb-4">Membership</h4>
+      <ul class="text-sm space-y-2 text-cream/70">
+        <li><a href={url("/membership")} class="hover:text-gold-light">Benefits</a></li>
+        <li><a href={url("/membership") + "#join"} class="hover:text-gold-light">Join Now</a></li>
+        <li><a href={url("/events")} class="hover:text-gold-light">Upcoming Events</a></li>
+        <li><a href={url("/contact")} class="hover:text-gold-light">Member Login</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-cream/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-cream/50">
+      <p>© 2026 Scott's Social Club. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="https://www.instagram.com/" class="hover:text-gold-light">Instagram</a>
+      </div>
+    </div>
+  </div>
+</footer>
