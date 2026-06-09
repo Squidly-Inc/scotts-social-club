@@ -8,7 +8,7 @@ const benefits = [
   "Two+ monthly mixers and/or educational programs with Silicon Valley's most influential leaders",
   "Parking included for Scott's Social Club events",
   "Working site access at Scott's Seafood — private and breakout rooms, Mon–Fri 11 AM–5 PM",
-  "Opportunity to join specialized councils — EmpowerHer and Thrive Network",
+  `Opportunity to join specialized councils — <a href="#" class="underline decoration-gold-deep/40 hover:text-gold-deep hover:decoration-gold-deep">EmpowerHer</a> and <a href="#" class="underline decoration-gold-deep/40 hover:text-gold-deep hover:decoration-gold-deep">Thrive Network</a>`,
   "Spotlight features across newsletters, social channels, and member events",
   "Invitations to signature experiences: Sip & Shuck Oyster Nights, The Art of Tuna, Wine & Paint, Seafood Boils (additional fees apply)",
 ];
@@ -111,7 +111,7 @@ const tiers = [
           {benefits.map((b) => (
             <li class="flex gap-4 items-start text-ink/85 leading-relaxed">
               <span class="text-gold-deep font-bold text-xl leading-none">·</span>
-              <span>{b}</span>
+              <span set:html={b}></span>
             </li>
           ))}
         </ul>
